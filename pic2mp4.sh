@@ -11,6 +11,7 @@ PICDIR=./pic
 JPGDIR=./jpg
 MP4DIR=./mp4
 STARTFILENUM=1
+FRAMERATE=24
 
 [[ -d $PICDIR ]] || { echo "Source directory does not exist"; exit 0; }
 [[ -d $JPGDIR ]] || mkdir -p $JPGDIR
@@ -27,5 +28,5 @@ for item in $(ls $JPGDIR); do
 done;
 
 for item in $(ls $JPGDIR); do
-    ffmpeg -f image2 -start_number $STARTFILENUM -framerate 24 -i "$JPGDIR/$item/%4d.jpg" -s:v 1920x1080 -c:v libx264 -crf 17 -pix_fmt yuv420p $MP4DIR/$item.mp4;
+    ffmpeg -f image2 -start_number $STARTFILENUM -framerate $FRAMERATE -i "$JPGDIR/$item/%4d.jpg" -s:v 1920x1080 -c:v libx264 -crf 17 -pix_fmt yuv420p $MP4DIR/$item.mp4;
 done;
