@@ -21,11 +21,9 @@ for item in $(ls -la $PICDIR|grep pic |awk '$5 > 0 {print $9}'); do
 done;
 
 for item in $(ls $JPGDIR); do
-    cd $JPGDIR/$item;  rename 's/Picture-//' *.jpg;
-done;
-
-for item in $(ls $JPGDIR); do
-    cd $JPGDIR/$item; rename 'unless (/0+[0-9]{4}.jpg/) {s/^([0-9]{1,3}\.jpg)$/000$1/g;s/0*([0-9]{4}\..*)/$1/}' *;
+    cd $JPGDIR/$item;  
+    rename 's/Picture-//' *.jpg;
+    rename 'unless (/0+[0-9]{4}.jpg/) {s/^([0-9]{1,3}\.jpg)$/000$1/g;s/0*([0-9]{4}\..*)/$1/}' *;
 done;
 
 for item in $(ls $JPGDIR); do
