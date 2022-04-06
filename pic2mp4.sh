@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Script to retrieve images from Hikvision PIC file format and coverting it to mp4 time laps video files.
 # Based on https://gist.github.com/Instagraeme/19557ece2db0e1cdb74ec5d8e3bb1618
